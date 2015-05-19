@@ -1,0 +1,34 @@
+@extends('{{mastertemplate}}')
+@section('content')
+<h1>This is the index view for {{table}}</h1>
+<h2>It is a starting point for time constrained programmers</h2>
+<!-- to use this, you'll paste this into a file, probably called /resources/views/{{model}}/index.blade.php -->
+<!-- then you'll want a controller: I use php artisan make:controller {{model}} -->
+<!-- in that controllers index function, add something like this:            -->
+<!-- ${{model}}s = \App\{{model}}::paginate(10);                                      -->
+<!-- return view('{{model}}.index')->with('{{model}}s', ${{model}}s);          -->
+<table class="table table-striped table-bordered">
+    <tr>
+        {{header}}
+        <!--  Remove this next line if you don't want view/edit/delete links -->
+        <th>View/Edit/Delete</th>
+    </tr>
+    @foreach(${{model}}s as $record)
+    <tr>
+        {{detail}}
+        <!-- this section adds view/edit/delete links, remove if you don't need it -->
+        <td> <a href='/{{hrefPath}}/{{ $record->id }}'>view</a>&nbsp;
+             <a href='/{{hrefPath}}/{{ $record->id }}/edit/'>edit</a>&nbsp;
+             <a href='/{{hrefPath}}/delete/{{ $record->id }}'>delete</a>
+        </td>
+    </tr>
+    @endforeach
+</table>
+     <!-- this next line is for the pagination controls, remove it if you don't use ${{model}}s = \App\{{model}}::paginate(10) in your controller -->
+     {!! ${{model}}s->render() !!}
+<br/>
+<a href='/{{hrefPath}}/create/'>new</a>&nbsp;
+@endsection
+@section('sidebar')
+       {{sidebarListItems}}
+@endsection

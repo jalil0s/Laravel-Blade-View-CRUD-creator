@@ -1,0 +1,12 @@
+<div class="alert alert-success" role="alert">
+    <b>Programming reminder:</b><br>
+    Don't forget, that in order to {{action}} data into your model, you need to set the <span class="label label-success">fillable</span> variable with the list of fields you want to be able to {{action}}.<br>
+    Here's an example line you can copy and paste in to your model:<br/><br/>
+
+    <div class="alert alert-info" role="alert" style='font-family: "Consolas", "Menlo", "Courier", monospace;' >
+    //add to your model for the <b>{{table}}</b> table<br>
+    protected $fillable = [{{fieldlist}}];
+    </div>
+    (remove this div once you've done)<br/>
+    (Already know all this? Generate these views without these tips by setting public $showAdvice = false;)
+</div>

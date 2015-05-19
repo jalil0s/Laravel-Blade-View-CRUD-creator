@@ -1,0 +1,38 @@
+@extends('{{mastertemplate}}')
+@section('content')
+<!--
+// To use this, you'll paste this into a file, probably called /resources/views/{{model}}/edit.blade.php
+// then you'll want a controller: I use php artisan make:controller {{model}}
+// In that controllers show function, add something like this:
+// ${{model}} = \App\{{model}}::find($id);
+// return view('{{model}}.edit')->with('{{model}}', ${{model}});
+
+// For this form, we're using the HTML helper formerly from Laravel, now from laravelcollective
+-->
+
+<h1>This is the edit view for {{table}}</h1>
+<h2>It is a starting point for time constrained programmers</h2>
+{{modeladvice}}
+
+<ul>
+    @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+</ul>
+
+{!! Form::model(${{model}}, array('route' => array('{{modelpath}}.update', ${{model}}->id), 'method' =>'PATCH')) !!}
+<!-- note, system fields will be generated, but commented out by default -->
+    {{formContent}}
+    {!! Form::submit('Submit', array('class'=>'btn btn-primary form-control')) !!}
+{!! Form::close() !!}
+
+<!-- this section adds view/edit/delete links, remove if you don't need it  -->
+<a href='/{{hrefPath}}/'>Index view</a><br/>
+<a href='/{{hrefPath}}/{{ ${{model}}->id }}'>view</a><br/>
+<a href='/{{hrefPath}}/create'>new</a><br/>
+<a href='/{{hrefPath}}/{{ ${{model}}->id }}/edit'>edit</a><br/>
+<a href='/{{hrefPath}}/delete/{{ ${{model}}->id }}'>delete</a><br/>
+@endsection
+@section('sidebar')
+       {{sidebarListItems}}
+@endsection

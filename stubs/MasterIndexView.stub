@@ -1,0 +1,6 @@
+@extends('{{mastertemplate}}')
+@section('content')
+@endsection
+@section('sidebar')
+       {{sidebarListItems}}
+@endsection

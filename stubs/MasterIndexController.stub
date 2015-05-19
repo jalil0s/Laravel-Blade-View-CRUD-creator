@@ -1,0 +1,25 @@
+<?php namespace {{namespace}};
+
+use {{rootNamespace}}\Http\Requests;
+use {{rootNamespace}}\Http\Controllers\Controller;
+
+/*
+ * Note,
+ *
+ * You may wish to copy and paste the following routes block into your routes.php
+ * file so the generated Controllers and Views are usable in your application.
+ *
+{{controllerComments}}
+ *
+ */
+
+class {{class}} extends Controller {
+
+    /**
+     * Returns the master index page
+     */
+    public function index()
+    {
+        {{index}}
+    }
+}
