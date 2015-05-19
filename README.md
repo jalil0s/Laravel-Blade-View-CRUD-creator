@@ -27,7 +27,7 @@ You must already have your tables created in mysql, you must already have your m
 - note - this was developed on osx, haven't tried with windows paths.
 
 1. download everything here - ie clone the repository to your system
-2. open the file Class_Query2BladeTemplate.php
+2. open the file `Class_Query2BladeTemplate.php`
 3. at around line 5, put in your DB connect string, (works only with mysql) port 8889 for mamp users, port 3306 for everyone else.
 4. at around line 10 set the value of pathToProjectFolder this should be the full path to your laravel install
 5. you probably should comment out the line $this->ResetDirectories() (about line 76 in the function SaveAll())
@@ -39,17 +39,17 @@ php Class_Query2BladeTemplate.php
 ```
 
 If all goes well, you'll have:
-  - app\http\controlers\admin (contatins controllers created by this script)
-  - resources\views\admin (contains the blade templates created by this script)
+  - `app\http\controlers\admin` (contatins controllers created by this script)
+  - `resources\views\admin` (contains the blade templates created by this script)
   
 At the top of every controller that was generated, is a sample block of code you can add to your routes.php file  
 
-Note that I create a subfolder called 'admin' the idea behind this was two fold: 
+Note that I create a subfolder called admin the idea behind this was two fold: 
 
 1. I didn't want to accidentally overwrite any pre-existing views/controllers.
 2. it made sense that you'd use this for a quick and dirty 'admin' interface.
 
-You can easily change 'admin' to anything else by setting the $subFolder to something else.
+You can easily change `admin` to anything else by setting the $subFolder to something else.
 
 Here are a few screenshots:
 ![Image of Index view]
